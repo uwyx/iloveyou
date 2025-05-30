@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>O Fim (ou Início)</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Georgia', serif;
+    }
+
+    body {
+      background-color: #0a0a0a;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      height: 100vh;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 1.8rem;
+      margin-bottom: 40px;
+      max-width: 800px;
+      line-height: 1.4;
+      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+    }
+
+    #playBtn {
+      padding: 16px 40px;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 30px;
+      background: linear-gradient(to right, #6a3093, #a044ff);
+      color: #fff;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      font-weight: 600;
+      transition: all 0.3s ease;
+      margin-bottom: 30px;
+    }
+
+    #playBtn:hover {
+      transform: scale(1.05);
+      opacity: 0.95;
+    }
+
+    .mensagem-final {
+      font-size: 1.1rem;
+      max-width: 700px;
+      color: #eaeaea;
+      font-style: italic;
+      line-height: 1.5;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+    }
+
+    audio {
+      display: none;
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 1.4rem;
+        margin-bottom: 30px;
+      }
+
+      #playBtn {
+        padding: 14px 28px;
+        font-size: 1rem;
+      }
+
+      .mensagem-final {
+        font-size: 1rem;
+        padding: 0 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>"Nem tudo pode ser dito em palavras... então, ouça."</h1>
+
+  <button id="playBtn">Ouvir</button>
+
+  <p class="mensagem-final">"Não vamos desistir do que foi construído... acredita em nós, na nossa história, no que ainda podemos ser juntos."</p>
+
+  <audio id="audio" src="audio1.ogg"></audio>
+
+  <script>
+    const btn = document.getElementById('playBtn');
+    const audio = document.getElementById('audio');
+
+    btn.addEventListener('click', () => {
+      audio.play();
+      btn.disabled = true;
+      btn.textContent = "Reproduzindo...";
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Eu te amo</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Georgia', serif;
+    }
+
+    body {
+      background-color: #0a0a0a;
+      color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .frase {
+      font-size: 1.8rem;
+      max-width: 800px;
+      opacity: 0;
+      transition: opacity 1.5s ease-in-out;
+    }
+
+    .frase.visible {
+      opacity: 1;
+    }
+
+    #btnProximaFase {
+      margin-top: 40px;
+      padding: 14px 36px;
+      font-size: 1.1rem;
+      border: none;
+      border-radius: 30px;
+      background: linear-gradient(to right, #2c2b75, #6a6a6b);
+      color: #fff;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      font-weight: 600;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+      transition: all 0.3s ease;
+    }
+
+    #btnProximaFase:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+      opacity: 0.95;
+    }
+  </style>
+</head>
+<body>
+  <div id="fraseContainer" class="frase">"Tudo começou com um olhar tímido..."</div>
+
+  <button id="btnProximaFase">Próxima Fase</button>
+
+  <script>
+    const frases = [
+      '"Tudo começou com um olhar tímido..."',
+      '"Entre tantas incertezas, você era a única certeza."',
+      '"Cada gesto seu reacendia algo dentro de mim."',
+      '"A gente se descobriu tão rapido, no tempo certo."',
+      '"E foi assim que essa fase marcou minha alma."'
+    ];
+
+    const fraseEl = document.getElementById('fraseContainer');
+    let index = 0;
+
+    function mostrarProximaFrase() {
+      fraseEl.classList.remove('visible');
+
+      setTimeout(() => {
+        index = (index + 1) % frases.length;
+        fraseEl.textContent = frases[index];
+        fraseEl.classList.add('visible');
+      }, 1000);
+    }
+
+    setInterval(mostrarProximaFrase, 5000); // Troca a frase a cada 5s
+    fraseEl.classList.add('visible');
+
+    document.getElementById('btnProximaFase').addEventListener('click', () => {
+      window.location.href = 'fim.html'; // troque pelo seu destino
+    });
+  </script>
+</body>
+</html>
